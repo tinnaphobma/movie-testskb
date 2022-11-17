@@ -62,10 +62,12 @@ const Home = () => {
         {movies.map((item) => (
           <div className="  hover:opacity-[0.9]">
             <img className=" w-[24rem] h-full" src={item.poster} />
-            <div className="flex ">
+            <div className="flex gap-20 ">
               <label>ราคา {item.price} BTC</label>
               <label></label>
-              <button onClick={() => onAdd(item)}>เพิ่ม</button>
+            <button onClick={() => {onAdd(item)
+                  alert(`เพิ่ม ${item.title}  ลงในตระกร้าแล้วนะครับ`)}
+              } className="bg-slate-100 rounded">เพิ่ม</button>
             </div>
           </div>
         ))}

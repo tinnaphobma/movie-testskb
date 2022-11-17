@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div >
+    <div className='min-h-[100vh]'>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/cart' element={<Cart/>}/>
