@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//udemy.com//Udemy
+METHOD:PUBLISH
+BEGIN:VEVENT
+ORGANIZER;CN="Udemy":mailto:no-reply@udemy.com
+SUMMARY:Time to learn an english pronunciation
+SEQUENCE:0
+DTSTAMP:20221117T022736Z
+DTSTART;TZID=Asia/Bangkok:20221117T183000
+DTEND;TZID=Asia/Bangkok:20221117T190000
+UID:1625884
+RRULE:FREQ=DAILY;
+DESCRIPTION:Clear English Pronunciation (https://www.udemy.com/course/clear-english-pronunciation/learn/)
+
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:Time to learn an english pronunciation
+END:VALARM
+END:VEVENT
+END:VCALENDAR
