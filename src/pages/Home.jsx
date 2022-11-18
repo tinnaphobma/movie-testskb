@@ -53,8 +53,8 @@ const Home = () => {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
-  const addNotify = (value) => toast(`เพิ่ม${value}]ลงตะกร้าสินค้าแล้วครับ`,{ autoClose: 1500 },{
-    icon: "🚀"});
+  const addNotify = (value) => toast(`เพิ่ม ${value} ลงตะกร้าสินค้าแล้วครับ`,{ autoClose: 1500 }
+  );
 
 
   return (
