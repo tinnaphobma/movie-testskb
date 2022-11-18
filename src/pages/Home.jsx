@@ -4,10 +4,15 @@ import Cart from "../assets/shopping-cart.png";
 import axios from "axios";
 import NotFound from "../assets/404.png";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // const cart  =  localStorage.getItem('cart')
 
 const Home = () => {
+
+
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const navigate = useNavigate()
@@ -48,26 +53,37 @@ const Home = () => {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
+  const addNotify = (value) => toast(`เพิ่ม${value}]ลงตะกร้าสินค้าแล้วครับ`,{ autoClose: 1500 },{
+    icon: "🚀"});
+
 
   return (
-    <div className="border bg-slate-400 border-black  p-5 flex flex-col gap-3">
-      <div className=" bg-slate-500 p-2 cursor-pointer ml-auto flex justify-between items-center  gap-2 ">
-        <label>ตระกร้าสินค้า</label>
+    <div className="border bg-gradient-to-r from-purple-500  to-pink-400 p-5 flex flex-col gap-3">
+      <ToastContainer/>
+      <div onClick={() => navigate('/cart')} className="bg-white hover:bg-gradient-to-r from-orange-500  to-yellow-400 rounded p-2 cursor-pointer ml-auto flex justify-between items-center  gap-2 hover:bg-yellow-500 ">
+        <div>ตระกร้าสินค้า</div>
         <img onClick={() => navigate('/cart') } className=" w-8" src={Cart} />
       </div>
 
       <Search search={search} setSearch={setSearch} />
 
-      <div className=" grid grid-cols-3 w-full  justify-  gap-y-9 bg-red-400">
+      <div className="ml-24 mt-4 grid grid-cols-3 w-full gap-y-24 ">
         {movies.map((item) => (
-          <div className="  hover:opacity-[0.9]">
-            <img className=" w-[24rem] h-full" src={item.poster} />
-            <div className="flex gap-20 ">
-              <label>ราคา {item.price} BTC</label>
-              <label></label>
+          <div className="  hover:opacity-[0.9] ">
+          
+            <img className=" w-[15rem] h-[80%] rounded" src={item.poster} />
+            <div className="  justify-between  w-auto flex pr-14 ">
+              <div className="mt-4  overflow-hidden text-ellipsis  break-all w-[60%]">{item.title}</div>
+            </div >
+            <div  > วันที่ {item.date}</div>
+            <div className=" flex gap-3  ">
+                <label>ราคา {item.price} BTC</label>
+                <label></label>
+           
             <button onClick={() => {onAdd(item)
-                  alert(`เพิ่ม ${item.title}  ลงในตระกร้าแล้วนะครับ`)}
-              } className="bg-slate-100 rounded">เพิ่ม</button>
+                 addNotify(item.title) 
+                }
+              } className="bg-yellow-400 rounded px-3">เพิ่มลงตระกร้า</button>
             </div>
           </div>
         ))}

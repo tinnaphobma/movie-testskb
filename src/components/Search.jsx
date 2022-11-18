@@ -3,7 +3,7 @@ import React from 'react'
 const Search = ({search,setSearch}) => {
   return (
     <div className='flex justify-center gap-4'>
-      <input
+      <input placeholder='ใส่ชื่อภาพยนต์ที่ต้องการค้นหา'
       value={search}
        onChange={( e )=> { 
           setSearch(e.target.value)  

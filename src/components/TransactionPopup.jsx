@@ -19,10 +19,12 @@ const TransactionPopup = ({setPopup }) => {
   return (
     <div className='gap-5 flex flex-col top-1/2 left-1/2 
     -translate-x-1/2  items-center -translate-y-1/2 fixed 
-    h-[70vh] w-[70vh] bg-blue-200'>
-     <div className='mt-20' >transaction</div>
-     <img className='w-[50%] h-[50]' src={Qrcode} />
-     <div>เลขบัญชี 738-393-983-2</div>
+    h-[80vh] w-[90vh] bg-gray-300 rounded-lg shadow-sm'>
+     <div className='mt-4 text-xl' >ชำระเงิน</div>
+     <img className='w-[50%] h-[50] ' src={Qrcode} />
+     <div>OR e-Wallet ID  738-393-983-2</div>
+     <div>Ref 1 : 318348013</div>
+     <div>Ref 2 : 232313</div>
      <div>โปรดชำระก่อน {count} วินาที</div>
     </div>
   )
